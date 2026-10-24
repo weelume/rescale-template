@@ -1,0 +1,1 @@
+export const brand={name:{zh:'Rescale',en:'rescale'},logo:'/templates/rescale/media/bMpXE2S0wKTS52g7kr9xzyGlio.svg',year:2026} as const;

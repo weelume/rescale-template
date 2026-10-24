@@ -1,0 +1,10 @@
+'use client'
+import {usePathname} from 'next/navigation'
+import Link from 'next/link'
+import type {SiteTemplatePageProps} from '../../../types'
+import {articles} from '../content/articles'
+import {t} from '../content'
+import {Shell,Button,path,media} from '../components/Shell'
+import {JournalCards} from '../components/JournalCards'
+import {Reveal} from '../components/Motion'
+export default function ArticlePage(props:SiteTemplatePageProps){const{locale='zh',basePath}=props,pathname=usePathname(),article=articles.find(a=>pathname.endsWith('/'+a.slug));if(!article)return null;return <Shell {...props}><div className="rs-container"><header className="rs-page-header rs-article"><Link className="rs-article-back" href={path(basePath,'journal')}>{locale==='zh'?'返回增长期刊':'Back to Journal'}</Link><Reveal flip><h1>{t(article.title,locale)}</h1></Reveal><div className="rs-story-meta" style={{justifyContent:'center'}}><time dateTime={article.date}>{article.date}</time><span>{locale==='zh'?`阅读约 ${article.minutes} 分钟`:`Reading time ${article.minutes} mins`}</span></div></header><article className="rs-article"><Reveal><img className="rs-article-image" src={media(article.image)} alt={t(article.title,locale)}/></Reveal><div className="rs-prose">{article.body.map((block,i)=>block.heading?<h2 key={i}>{t(block.text,locale)}</h2>:<p key={i} data-callout={/^[“"✓\d]/.test(t(block.text,locale))}>{t(block.text,locale)}</p>)}</div><Button href={path(basePath,'contact')}>{locale==='zh'?'探索 AI 如何改变你的业务':'See how AI can transform your business'}</Button></article><section className="rs-related"><h2>{locale==='zh'?'继续探索':'More from the Journal'}</h2><JournalCards {...props} exclude={article.slug} limit={4}/></section></div></Shell>}

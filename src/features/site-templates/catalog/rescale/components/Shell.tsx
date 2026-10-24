@@ -1,0 +1,35 @@
+'use client'
+import Link from 'next/link'
+import {useEffect,useState,useRef,type ReactNode} from 'react'
+import {AnimatePresence,motion,MotionConfig,useReducedMotion} from 'framer-motion'
+import type {SiteTemplatePageProps,TemplateLocale} from '../../../types'
+import {brand} from '../config/brand'
+import {useRescaleHost} from '../host'
+import {copy,nav,t,type Copy} from '../content'
+import {Reveal,spring} from './Motion'
+import '../theme.css'
+export const media=(name:string)=>'/templates/rescale/media/'+name
+export function path(base:string,slug=''){return (base+'/'+slug).replace(/\/$/,'')||'/'}
+export function Button({children,href,className=''}:{children:ReactNode;href:string;className?:string}){return <Link className={`rs-button ${className}`} href={href}><span>{children}</span></Link>}
+export function Heading({label,title,desc}:{label:string;title:string;desc?:string}){return <div className="rs-section-heading"><Reveal><span className="rs-eyebrow">{label}</span></Reveal><Reveal delay={0.1} flip><h2>{title}</h2></Reveal>{desc&&<Reveal delay={0.2}><p>{desc}</p></Reveal>}</div>}
+export function Nudge({text,button,basePath,locale,href}:{text:Copy;button:Copy;basePath:string;locale:TemplateLocale;href?:string}){return <div className="rs-nudge"><p>{t(text,locale)}</p><Button href={href??path(basePath,'contact')}>{t(button,locale)}</Button></div>}
+function Newsletter({locale}:{locale:TemplateLocale}){const[status,setStatus]=useState(false);return <form onSubmit={e=>{e.preventDefault();setStatus(true);console.debug('[rescale:newsletter] local validation passed; no data sent')}}><h3>{t(copy.newsletter,locale)}</h3><p>{locale==='zh'?'第一时间发现下一种可能':'Be first to know what’s next'}</p><div className="rs-newsletter"><input aria-label={locale==='zh'?'订阅邮箱':'Subscription email'} type="email" required placeholder={locale==='zh'?'你的邮箱':'Your email'}/><button type="submit">{locale==='zh'?'订阅':'Join'}</button></div><small>{t(copy.demo,locale)}</small>{status&&<p role="status">{t(copy.success,locale)}</p>}</form>}
+export function Shell({children,locale='zh',basePath}:SiteTemplatePageProps&{children:ReactNode}){
+  const host=useRescaleHost(),name=host.brandName?.[locale]??brand.name[locale],reduce=useReducedMotion()
+  const[open,setOpen]=useState(false),[languagePath,setLanguagePath]=useState('#'),menuRef=useRef<HTMLDivElement>(null),triggerRef=useRef<HTMLButtonElement>(null)
+  useEffect(()=>{const update=()=>{const url=new URL(window.location.href),parts=url.pathname.split('/');const site=parts.indexOf('site');if(site>=0){if(parts[site+1]==='en')parts.splice(site+1,1);else parts.splice(site+1,0,'en')}else if(parts[1]==='en')parts.splice(1,1);else parts.splice(1,0,'en');setLanguagePath((parts.join('/')||'/')+url.search+url.hash)};update();window.addEventListener('hashchange',update);return()=>window.removeEventListener('hashchange',update)},[basePath,locale])
+  useEffect(()=>{if(!open)return;menuRef.current?.querySelector<HTMLAnchorElement>('a')?.focus();const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setOpen(false);triggerRef.current?.focus()}if(e.key==='Tab'){const els=menuRef.current?.querySelectorAll<HTMLElement>('a,button');if(!els?.length)return;if(e.shiftKey&&document.activeElement===els[0]){e.preventDefault();els[els.length-1].focus()}else if(!e.shiftKey&&document.activeElement===els[els.length-1]){e.preventDefault();els[0].focus()}}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key)},[open])
+  return <MotionConfig reducedMotion="user"><div className="rs-root" lang={locale==='zh'?'zh-CN':'en'} id="top">
+    <a className="rs-skip" href="#rs-main">{locale==='zh'?'跳至正文':'Skip to content'}</a>
+    <motion.header className="rs-nav" initial={reduce?false:{y:-110}} animate={{y:0}} transition={{...spring,delay:0.1}}>
+      <div className="rs-nav-bar"><Link className="rs-brand" href={path(basePath)} aria-label={name}>{host.logo?<><img src={host.logo} alt=""/>{name}</>:<img className="rs-wordmark" src={brand.logo} alt={name}/>}</Link>
+      <button className={`rs-menu-toggle ${open?'is-open':''}`} ref={triggerRef} type="button" aria-label={locale==='zh'?(open?'关闭菜单':'打开菜单'):(open?'Close menu':'Open menu')} aria-expanded={open} aria-controls="rs-menu" onClick={()=>setOpen(v=>!v)}><span>{Array.from({length:9},(_,i)=><i key={i}/>)}</span></button>
+      <Link className="rs-locale" href={languagePath} aria-label={locale==='zh'?'Switch to English':'切换中文'}>{locale==='zh'?'EN':'中'}</Link><Link href={path(basePath,'contact')} className="rs-book-icon" aria-label={t(copy.book,locale)}>▦</Link></div>
+      <AnimatePresence>{open&&<motion.div ref={menuRef} id="rs-menu" className="rs-menu" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} transition={{duration:0.45,ease:[0.22,1,0.36,1]}}><nav aria-label={locale==='zh'?'主导航':'Main navigation'}>{nav.map((item,i)=><motion.div key={item.id} initial={{y:18,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:i*0.035}}><Link onClick={()=>setOpen(false)} href={path(basePath)+'#'+item.id}>{t(item.label,locale)}</Link></motion.div>)}<Link onClick={()=>setOpen(false)} href={path(basePath,'journal')}>{t(copy.journal,locale)}</Link><Link onClick={()=>setOpen(false)} href={path(basePath,'contact')}>{t(copy.contact,locale)}</Link></nav></motion.div>}</AnimatePresence>
+    </motion.header>
+    <main id="rs-main">{children}</main>
+    <section className="rs-cta rs-container"><Reveal flip><h2>{t(copy.cta,locale)}</h2></Reveal><p>{t(copy.ctaDesc,locale)}</p><Button href={path(basePath,'contact')}>{t(copy.book,locale)}</Button><small><i className="rs-status-dot"/>{t(copy.available,locale)}</small></section>
+    <footer className="rs-footer rs-container"><div className="rs-footer-grid"><div><Link className="rs-footer-brand" href={path(basePath)}>{name}<sup>®</sup></Link><p>{t(copy.footer,locale)}</p><div className="rs-socials">{['X','LinkedIn','Instagram','YouTube','Discord'].map(s=><a key={s} href={s==='X'?'https://www.x.com':`https://www.${s.toLowerCase()}.com`} target="_blank" rel="noreferrer">{s}</a>)}</div></div><Newsletter locale={locale}/><nav aria-label={locale==='zh'?'页脚导航':'Footer navigation'}><Link href={path(basePath)}>{locale==='zh'?'首页':'Home'}</Link>{nav.map(n=><Link key={n.id} href={path(basePath)+'#'+n.id}>{t(n.label,locale)}</Link>)}<Link href={path(basePath,'journal')}>{t(copy.journal,locale)}</Link><Link href={path(basePath,'contact')}>{t(copy.contact,locale)}</Link><Link href={path(basePath,'404')}>404</Link></nav></div><div className="rs-copyright">© {brand.year} {name}{host.marketplaceHref&&<Link href={host.marketplaceHref}>{host.marketplaceLabel?.[locale]}</Link>}{host.filing}</div><div className="rs-footer-visual" aria-hidden="true"><img src={media('8CYomO3dZZ1U75cCJgRI2DgBoM.png')} alt=""/></div></footer>
+    {host.marketplaceHref&&<Link className="rs-marketplace" href={host.marketplaceHref} aria-label={host.marketplaceAriaLabel?.[locale]}><img src={host.lightLogo??host.logo} alt=""/><span>{name}</span></Link>}
+  </div></MotionConfig>
+}

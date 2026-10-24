@@ -1,0 +1,107 @@
+{
+  "$schema": "./schemas/customization.schema.json",
+  "format": "git-template-customization",
+  "formatVersion": "0.2.0",
+  "entries": [
+    {
+      "id": "brand",
+      "title": "品牌配置",
+      "description": "编辑品牌配置",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/rescale/config/brand.ts",
+          "kind": "file",
+          "purpose": "品牌配置"
+        }
+      ],
+      "constraints": [
+        "保留中英文与减少动态效果支持",
+        "修改后执行受影响检查"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    },
+    {
+      "id": "content",
+      "title": "中英文内容",
+      "description": "编辑中英文内容",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/rescale/content.ts",
+          "kind": "file",
+          "purpose": "中英文内容"
+        }
+      ],
+      "constraints": [
+        "保留中英文与减少动态效果支持",
+        "修改后执行受影响检查"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    },
+    {
+      "id": "articles",
+      "title": "期刊文章",
+      "description": "编辑期刊文章",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/rescale/content/articles.ts",
+          "kind": "file",
+          "purpose": "期刊文章"
+        }
+      ],
+      "constraints": [
+        "保留中英文与减少动态效果支持",
+        "修改后执行受影响检查"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    },
+    {
+      "id": "theme",
+      "title": "主题与响应式",
+      "description": "编辑主题与响应式",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/rescale/theme.css",
+          "kind": "file",
+          "purpose": "主题与响应式"
+        }
+      ],
+      "constraints": [
+        "保留中英文与减少动态效果支持",
+        "修改后执行受影响检查"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    },
+    {
+      "id": "motion",
+      "title": "动效与交互",
+      "description": "编辑动效与交互",
+      "files": [
+        {
+          "path": "src/features/site-templates/catalog/rescale/components",
+          "kind": "directory",
+          "purpose": "动效与交互"
+        }
+      ],
+      "constraints": [
+        "保留中英文与减少动态效果支持",
+        "修改后执行受影响检查"
+      ],
+      "checks": [
+        "typecheck",
+        "lint"
+      ]
+    }
+  ]
+}

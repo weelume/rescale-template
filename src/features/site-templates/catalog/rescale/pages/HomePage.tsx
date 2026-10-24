@@ -1,0 +1,10 @@
+'use client'
+import type {SiteTemplatePageProps} from '../../../types'
+import {copy,t} from '../content'
+import {Shell,Button,path,media} from '../components/Shell'
+import {Reveal,Video} from '../components/Motion'
+import {Spotlight} from '../components/Spotlight'
+import {Features} from '../components/Features'
+import {Process,Integrations,Performance,Team,Partners} from '../components/Sections'
+import {Testimonials,Pricing,FAQ} from '../components/Conversion'
+export default function HomePage(props:SiteTemplatePageProps){const{locale='zh',basePath}=props;return <Shell {...props}><section className="rs-hero"><div className="rs-hero-background" aria-hidden="true"><Video src={media('9f3YOJWd8t3cibP1iqPDR1mCMro.mp4')} poster={media('WjMeLOt3HEE9cWpQCCn4avE7yEg.png')}/></div><div className="rs-hero-content rs-container"><Reveal delay={1}><div className="rs-hero-badge"><span>12K+</span>{t(copy.growing,locale)}</div></Reveal><h1><Reveal flip><span className="rs-heading-line">{t(copy.heroA,locale)}</span></Reveal><div className="rs-heading-row"><Reveal delay={0.2}>{t(copy.heroB,locale)}</Reveal><Reveal delay={0.4}><span className="rs-ai-pill">{t(copy.heroAccent,locale)}</span></Reveal><Reveal delay={0.6}>{t(copy.heroEnd,locale)}</Reveal></div></h1><Reveal delay={0.8}><p className="rs-hero-desc">{t(copy.heroDesc,locale)}</p></Reveal><Reveal delay={1}><div className="rs-hero-actions"><Button href={path(basePath)+'#pricing'}>{t(copy.trial,locale)}</Button><Button className="rs-button-white" href={path(basePath)+'#how-it-works'}>{t(copy.how,locale)}</Button></div></Reveal><Partners locale={locale}/></div></section><Spotlight locale={locale}/><Features locale={locale}/><Process {...props}/><Integrations {...props}/><Performance {...props}/><Team {...props}/><Testimonials {...props}/><Pricing {...props}/><FAQ {...props}/></Shell>}

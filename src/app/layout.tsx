@@ -1,0 +1,1 @@
+import type { ReactNode } from 'react';import './globals.css';export const metadata={title:'Rescale · 智能增长分析',description:'AI analytics for growing businesses'};export default function Layout({children}:{children:ReactNode}){return <html lang="zh-CN"><body>{children}</body></html>}

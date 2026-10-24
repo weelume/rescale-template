@@ -1,0 +1,1 @@
+import Page from '../features/site-templates/catalog/rescale/pages/NotFoundPage';export default function NotFound(){return <Page locale="zh" basePath=""/>}

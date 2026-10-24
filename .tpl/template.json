@@ -1,0 +1,206 @@
+{
+  "$schema": "./schemas/template.schema.json",
+  "format": "git-template",
+  "formatVersion": "0.2.0",
+  "id": "rescale",
+  "version": "1.0.0",
+  "name": "Rescale · AI 智能增长",
+  "localizedNames": {
+    "en": "Rescale · Smart AI insights"
+  },
+  "summary": "双语 AI 分析与业务增长官网，含 6 篇期刊、联系表单、动态图表、视频、套餐与 FAQ。",
+  "sceneId": "corporate-site",
+  "listed": false,
+  "tags": [
+    "AI 分析",
+    "玻璃质感",
+    "蓝紫渐变",
+    "增长平台",
+    "中英文",
+    "PC / iPad / H5"
+  ],
+  "stack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Framer Motion"
+  ],
+  "accentColor": "#8585d4",
+  "cover": "assets/desktop-home.webp",
+  "screenshots": [
+    {
+      "src": "assets/desktop-contact.webp",
+      "alt": "Rescale desktop-contact",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990
+    },
+    {
+      "src": "assets/desktop-features.webp",
+      "alt": "Rescale desktop-features",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990
+    },
+    {
+      "src": "assets/desktop-home.webp",
+      "alt": "Rescale desktop-home",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990
+    },
+    {
+      "src": "assets/desktop-journal.webp",
+      "alt": "Rescale desktop-journal",
+      "device": "desktop",
+      "width": 1425,
+      "height": 990
+    },
+    {
+      "src": "assets/mobile-contact.webp",
+      "alt": "Rescale mobile-contact",
+      "device": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "src": "assets/mobile-features.webp",
+      "alt": "Rescale mobile-features",
+      "device": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "src": "assets/mobile-home.webp",
+      "alt": "Rescale mobile-home",
+      "device": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "src": "assets/mobile-journal.webp",
+      "alt": "Rescale mobile-journal",
+      "device": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "src": "assets/tablet-contact.webp",
+      "alt": "Rescale tablet-contact",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159
+    },
+    {
+      "src": "assets/tablet-features.webp",
+      "alt": "Rescale tablet-features",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159
+    },
+    {
+      "src": "assets/tablet-home.webp",
+      "alt": "Rescale tablet-home",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159
+    },
+    {
+      "src": "assets/tablet-journal.webp",
+      "alt": "Rescale tablet-journal",
+      "device": "tablet",
+      "width": 819,
+      "height": 1159
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "site",
+      "name": "智能增长官网",
+      "platform": "pc",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "pages": [
+        {
+          "slug": "",
+          "title": "首页",
+          "localizedTitles": {
+            "en": "Home"
+          }
+        },
+        {
+          "slug": "contact",
+          "title": "联系我们",
+          "localizedTitles": {
+            "en": "Contact"
+          }
+        },
+        {
+          "slug": "journal",
+          "title": "增长期刊",
+          "localizedTitles": {
+            "en": "Journal"
+          }
+        },
+        {
+          "slug": "journal/the-future-of-business-intelligence-trends-for-2024-and-beyond",
+          "title": "商业智能的未来",
+          "localizedTitles": {
+            "en": "The Future of Business Intelligence"
+          }
+        },
+        {
+          "slug": "journal/integrating-ai-analytics-a-success-story",
+          "title": "AI 分析集成的成功实践",
+          "localizedTitles": {
+            "en": "Integrating AI Analytics: A Success Story"
+          }
+        },
+        {
+          "slug": "journal/how-ai-is-transforming-business-analytics-in-2024",
+          "title": "以 AI 创新推动业务转型",
+          "localizedTitles": {
+            "en": "Transforming Business Through AI Innovation"
+          }
+        },
+        {
+          "slug": "journal/5-ways-to-optimize-your-business-strategy-with-smart-analytics",
+          "title": "智能分析优化业务战略的五种方式",
+          "localizedTitles": {
+            "en": "5 Ways to Optimize Your Business Strategy with Smart Analytics"
+          }
+        },
+        {
+          "slug": "journal/the-rise-of-predictive-analytics-a-game-changer-for-business-strategy",
+          "title": "预测分析如何改变业务战略",
+          "localizedTitles": {
+            "en": "The Rise of Predictive Analytics: A Game-Changer for Business Strategy"
+          }
+        },
+        {
+          "slug": "journal/the-ultimate-guide-to-data-driven-decision-making",
+          "title": "数据驱动决策完整指南",
+          "localizedTitles": {
+            "en": "The Ultimate Guide to Data-Driven Decision Making"
+          }
+        },
+        {
+          "slug": "404",
+          "title": "页面未找到",
+          "localizedTitles": {
+            "en": "Page not found"
+          }
+        }
+      ]
+    }
+  ],
+  "license": {
+    "type": "restricted",
+    "file": "docs/LICENSE.md",
+    "summary": "原创实现与原站第三方素材权利分别管理；原站素材商用与再分发许可待确认。",
+    "redistributionAllowed": false
+  },
+  "gitUrl": "https://github.com/weelume/rescale-template"
+}
