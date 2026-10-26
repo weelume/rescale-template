@@ -55,10 +55,10 @@ export const testimonials: {name:string;role:Copy;quote:Copy;image:string}[] = [
   {name:'Rachel Foster',role:['Nexus Digital 数字战略负责人','Digital Strategy Lead at Nexus Digital'],quote:['短短几周，团队就能以清晰数据为依据，更快、更自信地决策。','What impressed me most was how quickly we saw results. Within weeks, our team was making faster, more confident decisions with clear data to back them up.'],image:'55zlLOloE2rbGiQy8ndrw1EaAWs.jpeg'},
   {name:'Sally Taher',role:['Bastillo 设计负责人','Lead Designer at Bastillo'],quote:['团队拥抱新系统后，生产力持续提升，成果令人振奋。','The transformation was remarkable to witness. Within months, our productivity soared as team members embraced the new system and started delivering exceptional results.'],image:'gEGt81C3YZFSpxbB1qa5dt9dM.jpeg'},
 ]
-export const plans:{name:Copy;monthly:number;features:Copy[]}[]=[
-  {name:['基础版','Essential'],monthly:29,features:[['核心数据分析','Core Analytics'],['基础营销活动','Limited Campaigns'],['社区访问','Community Access'],['标准支持','Standard Support']]},
-  {name:['进阶版','Advanced'],monthly:79,features:[['包含基础版全部功能','All Essential Features'],['不限营销活动','Unlimited Campaigns'],['高级 AI 预测','Advanced AI predictions'],['优先支持','Priority support'],['团队协作工具','Team collaboration tools']]},
-  {name:['企业版','Enterprise'],monthly:199,features:[['包含进阶版全部功能','All Advanced Features'],['定制 AI 模型','Custom AI models'],['API 访问','API access'],['高级集成','Advanced Integrations'],['全天候优先支持','24/7 priority support'],['培训课程','Training Sessions']]},
+export const plans:{name:Copy;monthly:number;annualMonthly:number;features:Copy[]}[]=[
+  {name:['基础版','Essential'],monthly:29,annualMonthly:21,features:[['核心数据分析','Core Analytics'],['基础营销活动','Limited Campaigns'],['社区访问','Community Access'],['标准支持','Standard Support']]},
+  {name:['进阶版','Advanced'],monthly:79,annualMonthly:57,features:[['包含基础版全部功能','All Essential Features'],['不限营销活动','Unlimited Campaigns'],['高级 AI 预测','Advanced AI predictions'],['优先支持','Priority support'],['团队协作工具','Team collaboration tools']]},
+  {name:['企业版','Enterprise'],monthly:199,annualMonthly:145,features:[['包含进阶版全部功能','All Advanced Features'],['定制 AI 模型','Custom AI models'],['API 访问','API access'],['高级集成','Advanced Integrations'],['全天候优先支持','24/7 priority support'],['培训课程','Training Sessions']]},
 ]
 export const faqs:{q:Copy;a:Copy}[]=[
   {q:['新手也适合使用吗？','Is the platform suitable for beginners?'],a:['适合。直观易用的界面、引导式入门和专业支持，陪伴你完成每一步。','Yes, our platform is designed to be intuitive and user-friendly, with guided onboarding and expert support at every step.']},

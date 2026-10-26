@@ -3,16 +3,16 @@
   "format": "git-template-verification",
   "formatVersion": "0.2.0",
   "status": "passed",
-  "checkedAt": "2026-10-24T11:22:22.317Z",
-  "sourceCommit": "75c510d02a9e262e0e341a7c21e8ec0320fd11c8",
-  "sourceDigest": "032930ef0c2047c34804b0d345ba18ae3c55ade7cc072f1cd7e3d65fbfd53838",
+  "checkedAt": "2026-10-26T09:21:41.204Z",
+  "sourceCommit": "42189255ab22f070794a25ddb48d089c1cda58e1",
+  "sourceDigest": "d1a2f59bdb572f1a3d0a6c48a7237c4fad64af1d0da36359c8b61b640d755900",
   "environment": {
     "platform": "linux",
     "arch": "x64",
     "node": "v24.16.0",
     "packageManager": "12.10.1",
-    "cleanDirectory": true,
-    "localGitClone": true
+    "cleanDirectory": false,
+    "localGitClone": false
   },
   "checks": [
     {
@@ -25,8 +25,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-24T11:20:47.860Z",
-      "finishedAt": "2026-10-24T11:20:52.047Z"
+      "startedAt": "2026-10-26T09:21:16.076Z",
+      "finishedAt": "2026-10-26T09:21:18.139Z"
     },
     {
       "id": "lint",
@@ -38,8 +38,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-24T11:20:52.047Z",
-      "finishedAt": "2026-10-24T11:20:56.664Z"
+      "startedAt": "2026-10-26T09:21:18.139Z",
+      "finishedAt": "2026-10-26T09:21:20.996Z"
     },
     {
       "id": "test",
@@ -51,8 +51,8 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-24T11:20:56.664Z",
-      "finishedAt": "2026-10-24T11:20:57.203Z"
+      "startedAt": "2026-10-26T09:21:20.997Z",
+      "finishedAt": "2026-10-26T09:21:21.467Z"
     },
     {
       "id": "build",
@@ -64,20 +64,20 @@
       ],
       "status": "passed",
       "exitCode": 0,
-      "startedAt": "2026-10-24T11:20:57.203Z",
-      "finishedAt": "2026-10-24T11:21:20.736Z"
+      "startedAt": "2026-10-26T09:21:21.467Z",
+      "finishedAt": "2026-10-26T09:21:40.374Z"
     }
   ],
   "services": [
     {
       "id": "web",
       "status": "passed",
-      "stopped": true,
-      "checkedAt": "2026-10-24T11:21:23.834Z"
+      "stopped": false,
+      "checkedAt": "2026-10-26T09:21:41.640Z"
     }
   ],
   "limitations": [
-    "整站三端的原站逐项逐时刻动效精确对照尚未完成；不声明完整复刻验收。",
-    "原站素材商业和再分发许可未确认。"
+    "整站三端逐时刻原站动效精确对照仍未完成；手机真实拖拽换人结果未确认。",
+    "素材内英文标签和商业、再分发许可仍待确认。"
   ]
 }

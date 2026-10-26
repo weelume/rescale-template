@@ -32,3 +32,40 @@
 @media(max-width:389px){.rs-bento-split{grid-template-columns:1fr}.rs-bento>.rs-glass{grid-column:span 2}.rs-bento .rs-partner-orbit{min-height:250px}.rs-bento .rs-orbit-icons{transform:scale(.8)}}
 
 .rs-button{height:46px}.rs-button-label{height:24px;line-height:24px;overflow:hidden;position:relative;display:block}.rs-button-label>span{display:block;transition:transform .4s cubic-bezier(.22,1,.36,1)}.rs-button:hover .rs-button-label{transform:none}.rs-button:hover .rs-button-label>span{transform:translateY(-100%)}.rs-team-desktop{touch-action:pan-y;cursor:grab}.rs-team-desktop:active{cursor:grabbing}.rs-team-pause{border:1px solid var(--rs-line);padding:5px 13px;border-radius:20px;display:block;margin:20px auto 0;background:white;color:var(--rs-muted);font-size:11px}.rs-footer-keyword{font-size:12px;color:var(--rs-accent);height:28px;overflow:hidden;margin-top:12px}.rs-custom-cursor{position:fixed;left:-8px;top:-8px;width:16px;height:16px;border:5px solid #8185c999;border-radius:50%;z-index:200;pointer-events:none;display:none}@media(hover:hover) and (pointer:fine){.rs-custom-cursor{display:block}}
+
+/* 原站人物介绍在照片下方；桌面保留窄幅肖像，手机保留单张大图轮播。 */
+#about-us .rs-founder{aspect-ratio:auto;background:transparent;overflow:visible;border-radius:0}
+#about-us .rs-founder>img{width:160px;height:240px;margin-inline:auto;border-radius:8px;box-shadow:0 6px 14px #777fa326;filter:none}
+#about-us .rs-founder-info{position:static;background:none;color:var(--rs-ink);padding:28px 0 0;text-align:center}
+#about-us .rs-founder-info p{margin-top:6px;color:var(--rs-muted)}
+#about-us .rs-founder-social{max-height:none;opacity:1;justify-content:center;margin-top:18px}
+@media(min-width:810px){
+  #about-us .rs-section-heading{max-width:none;display:grid;grid-template-columns:1fr 2fr;text-align:left;column-gap:24px}
+  #about-us .rs-section-heading>div:first-child{grid-row:1 / span 2}
+  #about-us .rs-section-heading p{margin:20px 0 0}
+  #about-us .rs-team-desktop{width:66%;margin-left:auto;padding-top:24px;padding-bottom:40px;border-bottom:1px solid var(--rs-line)}
+  #about-us .rs-team-pause{margin-right:0}
+}
+@media(max-width:809px){
+  #about-us .rs-team-mobile .rs-founder{aspect-ratio:auto}
+  #about-us .rs-founder>img{width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;border-radius:0}
+  #about-us .rs-founder-info{padding-top:30px}
+}
+
+.rs-testimonial-carousel{display:none}
+@media(max-width:809px){
+  .rs-testimonials{display:flex;flex-direction:column;height:auto;overflow:visible;gap:32px}
+  .rs-testimonials>.rs-ticker{display:none}
+  .rs-video-testimonial{position:relative;padding:0;border-radius:12px;isolation:isolate}
+  .rs-video-testimonial video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:12px}
+  .rs-video-testimonial h3{position:absolute;top:24px;left:20px;margin:0;color:white;font-size:18px;pointer-events:none;text-shadow:0 1px 4px #0008}
+  .rs-video-testimonial>p{position:absolute;top:50px;left:20px;margin:0;color:white;font-size:12px;pointer-events:none;text-shadow:0 1px 4px #0008}
+  .rs-testimonial-carousel{display:block}
+  .rs-testimonial-stage{overflow:hidden;padding:8px}
+  .rs-testimonial-carousel .rs-quote{padding:30px;min-height:430px;touch-action:pan-y}
+  .rs-testimonial-carousel .rs-quote>p{font-size:17px;line-height:1.6}
+  .rs-testimonial-carousel .rs-quote>div{display:block;margin-top:24px}
+  .rs-testimonial-carousel .rs-quote img{width:100px;height:135px;object-fit:cover;border-radius:6px;margin-bottom:20px;box-shadow:var(--rs-shadow);pointer-events:none}
+  .rs-testimonial-carousel .rs-quote h3{font-size:16px}
+  .rs-testimonial-carousel .rs-quote small{font-size:12px}
+}
